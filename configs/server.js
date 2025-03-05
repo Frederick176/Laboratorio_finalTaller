@@ -7,6 +7,7 @@ import morgan from "morgan"
 import { dbConnection } from "./mongo.js"
 import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
+import categoryRoutes from "../src/category/category.routes.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
 import { swaggerDocs, swaggerUi } from "./swagger.js"
 
@@ -36,6 +37,7 @@ const middlewares = (app) => {
 const routes = (app) => {
     app.use("/ProductosYVentasEnLinea/v1/auth", authRoutes)
     app.use("/ProductosYVentasEnLinea/v1/user", userRoutes)
+    app.use("/ProductosYVentasEnLinea/v1/category", categoryRoutes)
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 

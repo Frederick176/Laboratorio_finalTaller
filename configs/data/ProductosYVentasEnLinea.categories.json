@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "67c8b7feb585134307cfa20c"
+  },
+  "name": "Electronica",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c8b82cb585134307cfa20f"
+  },
+  "name": "Informatica",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c8b879b585134307cfa212"
+  },
+  "name": "Musica",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c8b997b585134307cfa219"
+  },
+  "name": "Sin Categoría",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c8ba2cb585134307cfa21f"
+  },
+  "name": "Dibujo Tecnico",
+  "__v": 0
+}]

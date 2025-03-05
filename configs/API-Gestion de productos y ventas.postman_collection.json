@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "4761deb7-567f-4e07-a682-c6d1102197e6",
+		"name": "API-Gestion de productos y ventas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37606339"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Anderson\",\r\n    \"surname\": \"Perez\",\r\n    \"username\": \"andersonperez320\",\r\n    \"email\": \"anderson98@gmail.com\",\r\n    \"password\": \"Contraseña98!!\",\r\n    \"phone\": \"98320145\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"fredypalermo@gmail.com\",\r\n    \"password\": \"Contraseña123!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Editar usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MGMyOTIyNjc3M2JkMzMyMWE4MmYiLCJpYXQiOjE3NDExNjU3MzAsImV4cCI6MTc0MTE2OTMzMH0.NBKkP0C5VqeDwS7JyY0R36nP9lnJHcxdtZI3UBIE0EU"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"surname\": \"Rosas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/user/67c816eec0c9d733a95b60bf"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MGMyOTIyNjc3M2JkMzMyMWE4MmYiLCJpYXQiOjE3NDExNjY0NjcsImV4cCI6MTc0MTE3MDA2N30.lZ8QRdQ6JGkfzCgzBfNXuH81sDrHEbpX5WSqJU5m740"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/user/"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MGMyOTIyNjc3M2JkMzMyMWE4MmYiLCJpYXQiOjE3NDExNjY0NjcsImV4cCI6MTc0MTE3MDA2N30.lZ8QRdQ6JGkfzCgzBfNXuH81sDrHEbpX5WSqJU5m740"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/user/delete/67c8097d226773bd3321a821"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
