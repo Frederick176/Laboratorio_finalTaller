@@ -1,78 +1,90 @@
-import { error } from "console"
-import User from "./user.model.js"
-import { hash, verify } from "argon2"
-import fs from "fs/promises"
-import { join, dirname } from "path"
-import { fileURLToPath } from "url"
+import User from "../user/user.model.js"
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
-export const initializeAdmin = async () => {
+export const updateUser = async (req, res) => {
     try{
-        const adminExists = await User.findOne({role: "ADMIN_ROLE"})
-        if(!adminExists) {
-            const hashedPassword = await hash("Frederick053!!*")
-
-            const adminUser = {
-                username: "frederick",
-                email: "fhernandez-2023176@kinal.edu.gt",
-                phone: "12345678",
-                name: "Fredy",
-                surname: "Hernández",
-                password: hashedPassword,
-                role: "ADMIN_ROLE"
-            }
-            const admin = new User(adminUser)
-            await admin.save()
-            console.log("Administrador creado exitosamente")
-        }else {
-            console.log("El administrador que estas intentando crear ya existe")
-        }
-    }catch(err){
-        console.log("Error al crear al administrador:", err)
-    }
-}
-
-initializeAdmin()
-
-export const createUser = async (req, res) => {
-    try{
+        const { uid } = req.params
         const data = req.body
 
-        const encryptedPassword = await hash(data.password)
+        const currentUser = await User.findById(req.user.id)
 
-        data.password = encryptedPassword
+        if(data.role && currentUser.role !== "ADMIN_ROLE") {
+            return res.status(403).json({
+                success: false,
+                message: "Lo siento, no tienes permiso para cambiar el rol"
+            })
+        }
 
-        const user = await User.create(data)
+        const updateUser = await User.findByIdAndUpdate(uid, data, { new: true })
 
-        return res.status(201).json({
-            message: "Usuario creado exitosamente",
-            name: user.name,
-            email: user-email
+        res.status(200).json({
+            success: true,
+            message: "El usuario actualizado exitosamente",
+            user: updateUser
         })
-
-    }catch(err) {
-        return res.status(500).json({
-            message: "Error al crear al usuario",
+    }catch(err){
+        res.status(500).json({
+            success: false,
+            message: "Error al actalizar al usuario",
             error: err.message
         })
     }
 }
 
-export const modifyRole = async (req, res) => {
+export const getUser = async (req, res) => {
     try{
-        const { role } = req.body
+        const user = await User.find()
 
-        const user = await User.findByIdAndUpdate({ role }, { new: true})
-
-        return res.status(200).json({
-            message: "El rol del usuario modificado exitosamente",
+        res.status(200).json({
+            success: true,
+            message: "Usuario administrador, usuarios obtenidos",
             user
         })
     }catch(err){
-        return res.status(500).json ({
-            message: "Error al modificar el rol del usuario",
+        res.status(500).json({
+            success: false,
+            message: "Error al listar los usuarios",
+            err
+        })
+    }
+}
+
+export const deleteUser = async (req, res) => {
+    try{
+        const { uid } = req.params
+
+        if(!req.user) {
+            return res.status(401).json({
+                success: false,
+                message: "Lo siento no estas autenticado"
+            })
+        }
+
+        if(req.user.id !== uid) {
+            return res.status(403).json({
+                success: false,
+                message: "Lo siento no tienes permiso para eliminar de eliminar"
+            })
+        }
+
+        const deletedUser = await User.findByIdAndDelete(uid)
+        if(!deletedUser) {
+            return res.status(404).json({
+                success: false,
+                message: "Usuario no encontrado"
+            })
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Usuario eliminado exitosamente",
+            user: deletedUser
+        })
+        
+    }catch(err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al eliminar al usuario",
             error: err.message
         })
     }
-} 
+}
