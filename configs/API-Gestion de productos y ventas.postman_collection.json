@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "4761deb7-567f-4e07-a682-c6d1102197e6",
+		"_postman_id": "09b4f291-702f-4a8d-8d40-66617267c8ee",
 		"name": "API-Gestion de productos y ventas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "37606339"
+		"_exporter_id": "41829896"
 	},
 	"item": [
 		{
@@ -101,6 +101,89 @@
 						"method": "DELETE",
 						"header": [],
 						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/user/delete/67c8097d226773bd3321a821"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Add category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MGMyOTIyNjc3M2JkMzMyMWE4MmYiLCJpYXQiOjE3NDEyMDcxNjMsImV4cCI6MTc0MTIxMDc2M30.p9hxzKCEmib3acc-FDKPRaStAlaZlxdf9SvJNCve5Yg"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Dibujo Tecnico\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/category/addCategory"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MGMyOTIyNjc3M2JkMzMyMWE4MmYiLCJpYXQiOjE3NDEyMDcxNjMsImV4cCI6MTc0MTIxMDc2M30.p9hxzKCEmib3acc-FDKPRaStAlaZlxdf9SvJNCve5Yg"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/category/deleteCategory/"
+					},
+					"response": []
+				},
+				{
+					"name": "List categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MGMyOTIyNjc3M2JkMzMyMWE4MmYiLCJpYXQiOjE3NDEyMDcxNjMsImV4cCI6MTc0MTIxMDc2M30.p9hxzKCEmib3acc-FDKPRaStAlaZlxdf9SvJNCve5Yg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/category/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MGMyOTIyNjc3M2JkMzMyMWE4MmYiLCJpYXQiOjE3NDEyMDcxNjMsImV4cCI6MTc0MTIxMDc2M30.p9hxzKCEmib3acc-FDKPRaStAlaZlxdf9SvJNCve5Yg"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "http://127.0.0.1:3000/ProductosYVentasEnLinea/v1/category/update/"
 					},
 					"response": []
 				}
