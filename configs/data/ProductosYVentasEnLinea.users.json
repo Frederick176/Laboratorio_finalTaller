@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "67c809054e20421220ad7965"
+  },
+  "name": "Fredy",
+  "surname": "Hernández",
+  "username": "frederick10",
+  "email": "fhernandez-2023176@kinal.edu.gt",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$/Fx2ynsO9oaUbU6C7HnFrg$gDhkfhWGYSjTlrra2fG97UXLGM/XnRZokK0OUkI8mp8",
+  "phone": "20031698",
+  "role": "CLIENT_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c8097d226773bd3321a821"
+  },
+  "name": "Danilo",
+  "surname": "Hernández",
+  "username": "DanH320",
+  "email": "daniloHG65@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$hbgdrwhqujf9md7AI/Qlnw$EFogmqrwiLIJFTz1cVeQLWi4bIE1bDDmIOsX/V7dRWE",
+  "phone": "98452013",
+  "role": "CLIENT_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c80b97226773bd3321a82b"
+  },
+  "name": "Lizandro",
+  "surname": "Gómez",
+  "username": "LizanG650",
+  "email": "lizandroGomez12@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$yXKDkjlxVS7F5YRgVNw9FA$JJWXfMkKmeOrercQo1r98Hmk3iUQOzPfB0mGrbiexEs",
+  "phone": "30659922",
+  "role": "CLIENT_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c80c29226773bd3321a82f"
+  },
+  "name": "Fredy",
+  "surname": "Palermo",
+  "username": "Palermo320",
+  "email": "fredypalermo@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$2kYFvDOeoCsy7vzC/DJFOQ$5GOX7lzP2X8OaD8fm+leA7WEQCISz75klrfnr3Bd8qw",
+  "phone": "58207942",
+  "role": "ADMIN_ROLE",
+  "status": true
+}]

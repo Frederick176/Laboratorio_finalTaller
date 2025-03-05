@@ -19,3 +19,20 @@ export const registerValidator = [
     }),
     validarCampos,
 ]
+
+export const loginValidator = [
+    body("email").optional().isEmail().withMessage("No es un email válido"),
+    body("username").optional().isString().withMessage("Username es en formáto erróneo"),
+    body("password").isLength({min: 4}).withMessage("El password debe contener al menos 8 caracteres"),
+    validarCampos,
+]
+
+export const updateProfileValidator = [
+    body("name").optional().isString().withMessage("El nombre debe ser una cadena"),
+    body("surname").optional().isString().withMessage("El apellido debe ser una cadena"),
+    body("username").optional().isString().withMessage("El username debe ser una cadena"),
+    body("email").optional().isEmail().withMessage("No es un email válido"),
+    body("phone").optional().isString().withMessage("El teléfono debe ser una cadena"),
+    body("role").optional().isIn(["ADMIN_ROLE", "CLIENT_ROLE"]).withMessage("Rol no válido"),
+    validarCampos,
+];
