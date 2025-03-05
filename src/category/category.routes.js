@@ -1,8 +1,6 @@
 import { Router } from "express";
 import { addCategory, deleteCategory, updateCategory, getCategorias } from "./category.controller.js";
 import { validateJWT } from "../middlewares/validate-jwt.js";
-import swaggerJsdoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
 
 const router = Router();
 
